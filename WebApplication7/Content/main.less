@@ -1,0 +1,140 @@
+@import "Kickstrap/bootstrap/less/variables.less";
+@import "Kickstrap/bootstrap/less/mixins.less";
+
+#toolbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 42px;
+    .navbar-inner {
+        .border-radius(0);
+    }
+}
+#board {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    bottom: 42px;
+    left: 0;
+    background: #555;
+    overflow: auto;
+    .wrapper {
+        box-sizing: border-box;
+        padding: 5px;
+        height: 100%;
+        .column {
+            box-sizing: border-box;
+            float: left;
+            width: 300px;
+            height: 100%;
+            margin-right: 10px;
+            .border-radius(4px);
+            background: #ddd;
+            &:last-child {
+                margin-right: 0;
+            }
+            &.ui-sortable-placeholder {
+                visibility: visible !important;
+                background: #222;
+                border: none;
+            }
+            header {
+                box-sizing: border-box;
+                .border-radius(4px 4px 0 0);
+                border-top: 1px solid #fff;
+                font-weight: bold;
+                text-align: center;
+                height: 29px;
+                input {
+                    padding: 4px;
+                    margin: 0;
+                    width: 100%;
+                    font-size: 17px;
+                    border: none;
+                    background: transparent;
+                    font-weight: bold;
+                    outline: none;
+                    height: auto;
+                    .box-shadow(none);
+                    text-align: center;
+                }
+            }
+            .wrapper {
+                clear: both;
+                box-sizing: border-box;
+                height: -webkit-calc(~"92%");
+                width: 100%;
+                padding: 5px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                .clearfix;
+                z-index: 2;
+                div {
+                    opacity: .9;
+                    .clearfix;
+                    clear: both;
+                    display: block;
+                    box-sizing: border-box;
+                    background: white;
+                    width: 100%;
+                    padding: 5px;
+                    margin-bottom: 5px;
+                    .border-radius(4px);
+                    border: 1px solid #555;
+                    input[type=text] {
+                        box-sizing: border-box;
+                        margin: 0;
+                        border: 0;
+                        background: transparent;
+                        .box-shadow(none);
+                        outline: none;
+                        width: calc(~"100%- 20px");
+                    }
+                    input[type=checkbox] {
+                        float: left;
+                        margin-right: 5px;
+                    }
+                    &.done {
+                        background: @successBackground;
+                        span, input {
+                            text-decoration: line-through;
+                        }
+                    }
+                    &.ui-sortable-placeholder {
+                        visibility: visible !important;
+                        background: #999;
+                        border: none;
+                    }
+                    &.ui-sortable-helper {
+                        .rotate(-3deg);
+                        .box-shadow(0 0 10px #333);
+                    }
+                }
+            }
+            footer {
+                padding: 4px;
+                height: 29px;
+                form {
+                    button {
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+}
+body > footer {
+    margin-bottom: 0!important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    .navbar-inner {
+        .border-radius(0);
+        > span {
+            padding: 10px;
+            color: white;
+        }
+    }
+}
