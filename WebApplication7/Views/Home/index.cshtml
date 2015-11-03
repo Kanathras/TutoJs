@@ -3,6 +3,7 @@
     <title>JsTuto</title>
     <link rel="stylesheet/less" type="text/css" href="Content/main.less" />
     <link rel="stylesheet" type="text/css" href="Content/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="Content/fontawesome/css/font-awesome.min.css">
 
     <script src="Scripts/vendors/less.js" type="text/javascript"></script>
     <script src="Scripts/vendors/jquery-2.1.4.js" type="text/javascript"></script>
@@ -13,7 +14,7 @@
         <div class="container-fluid">
             <a href="#" class="navbar-brand navbar-left">JsTuto</a>
             <form class="navbar-right" method="POST" action="#/columns">
-                <button type="submit" class="btn btn-primary "><i class="icon-plus-sign"></i> Add column</button>
+                <button type="submit" class="btn btn-primary "><i class="fa fa-plus"></i> Add column</button>
             </form>
         </div>
     </nav>
@@ -21,25 +22,29 @@
         <div class="wrapper" data-bind="style:{width: wrapperSize}, sortable: {data:columns, connectClass: 'column'}">
             <section class="column">
                 <header>
-                    <input type="text" data-bind="value:name">
+                    <div class="headerbox">
+                        <input type="text" data-bind="value:name" />
+                    </div>
                 </header>
                 <div class="wrapper" data-bind="sortable:tasks">
-                    <div data-bind="css:{done: done},event: {dblclick: enableEdit}">
+                    <div class="todo" data-bind="css:{done: done}">
                         <input type="checkbox" data-bind="checked: done">
-                        <!-- ko if: edit -->
-                        <input type="text" data-bind="value:name, event: {blur: disableEdit}">
-                        <!-- /ko -->
-                        <!-- ko ifnot: edit -->
-                        <span data-bind="text: name"></span>
-                        <!-- /ko -->
+                        <div data-bind="event: {click: enableEdit}">
+                            <!-- ko if: edit -->
+                            <input type="text" data-bind="value:name, event: {blur: disableEdit}" contenteditable="true">
+                            <!-- /ko -->
+                            <!-- ko ifnot: edit -->
+                            <span data-bind="text: name"></span>
+                            <!-- /ko -->
+                        </div>
                     </div>
                 </div>
                 <footer>
                     <form method="POST" data-bind="attr:{action: addTaskAction}" class="pull-right">
-                        <button type="submit" class="btn btn-primary"><i class="icon-plus-sign"></i> Add todo</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add todo</button>
                     </form>
                     <form method="DELETE" data-bind="attr:{action: addTaskAction}" class="pull-left">
-                        <button type="submit" class="btn btn-danger"><i class="icon-minus-sign"></i> Remove column</button>
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> Remove column</button>
                     </form>
                 </footer>
             </section>

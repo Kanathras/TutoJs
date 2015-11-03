@@ -63,18 +63,37 @@
                 text-align: center;
                 height: 29px;
 
-                input {
-                    padding: 4px;
-                    margin: 0;
-                    width: 100%;
-                    font-size: 17px;
-                    border: none;
-                    background: transparent;
-                    font-weight: bold;
-                    outline: none;
-                    height: auto;
-                    .box-shadow(none);
-                    text-align: center;
+                .headerbox {
+                    border: 1px dashed transparent;
+                    margin-top: 2px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    height: 98%;
+
+                    &:hover {
+                        border: 1px dashed black;
+                        border-radius: 4px;
+                    }
+
+                    input {
+                        padding: 4px;
+                        margin: 0;
+                        width: 100%;
+                        font-size: 17px;
+                        border: none;
+                        background: transparent;
+                        font-weight: bold;
+                        outline: none;
+                        height: auto;
+                        .box-shadow(none);
+                        text-align: center;
+
+                        &[contenteditable=true] {
+                            border: 1px dashed black;
+                            border-radius: 4px;
+                            cursor: text;
+                        }
+                    }
                 }
             }
 
@@ -89,7 +108,7 @@
                 .clearfix;
                 z-index: 2;
 
-                div {
+                .todo {
                     opacity: .9;
                     .clearfix;
                     clear: both;
@@ -105,6 +124,19 @@
                     .border-left-radius(4px);
                     border: 1px solid #555;
 
+                    span {
+                        border: 1px dashed transparent;
+                        border-radius: 4px;
+                        display: inline-block;
+                        width: calc(~"100%- 20px");
+                        box-sizing: border-box;
+
+                        &:hover {
+                            border: 1px dashed black;
+                            border-radius: 4px;
+                        }
+                    }
+
                     input[type=text] {
                         box-sizing: border-box;
                         margin: 0;
@@ -113,6 +145,12 @@
                         .box-shadow(none);
                         outline: none;
                         width: calc(~"100%- 20px");
+
+                        &[contenteditable=true] {
+                            border: 1px dashed black;
+                            border-radius: 4px;
+                            cursor: text;
+                        }
                     }
 
                     input[type=checkbox] {
