@@ -191,6 +191,9 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap\js\npm.js" />
+    <Content Include="Content\fontawesome\css\font-awesome.css" />
+    <Content Include="Content\fontawesome\css\font-awesome.min.css" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\main.less" />
@@ -255,6 +258,24 @@
     <Content Include="Content\bootstrap\type.less" />
     <Content Include="Content\bootstrap\utilities.less" />
     <Content Include="Content\bootstrap\wells.less" />
+    <Content Include="Content\fontawesome\less\animated.less" />
+    <Content Include="Content\fontawesome\less\bordered-pulled.less" />
+    <Content Include="Content\fontawesome\less\core.less" />
+    <Content Include="Content\fontawesome\less\fixed-width.less" />
+    <Content Include="Content\fontawesome\less\font-awesome.less" />
+    <Content Include="Content\fontawesome\less\icons.less" />
+    <Content Include="Content\fontawesome\less\larger.less" />
+    <Content Include="Content\fontawesome\less\list.less" />
+    <Content Include="Content\fontawesome\less\mixins.less" />
+    <Content Include="Content\fontawesome\less\path.less" />
+    <Content Include="Content\fontawesome\less\rotated-flipped.less" />
+    <Content Include="Content\fontawesome\less\stacked.less" />
+    <Content Include="Content\fontawesome\less\variables.less" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fontawesome\fonts\FontAwesome.otf" />
     <None Include="Views\Home\index.cshtml" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
