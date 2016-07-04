@@ -1,8 +1,9 @@
 define(["vendors/knockout-3.3.0", "viewmodels/column"], function (ko, Column) {
 
-    var stored = JSON.parse(localStorage.getItem("board") || "[]"),
-        columns = ko.observableArray([]),
-        state = ko.computed(function() {
+    var stored = JSON.parse(localStorage.getItem("board") || "[]");
+    var columns = ko.observableArray([]);
+
+    var state = ko.computed(function() {
             var _columns = columns();
 
             return _columns.map(function(column) {
@@ -13,8 +14,9 @@ define(["vendors/knockout-3.3.0", "viewmodels/column"], function (ko, Column) {
                     })
                 };
             });
-        }),
-        todo = ko.computed(function(){
+        });
+
+    var todo = ko.computed(function(){
             return columns().map(function(column){
                 return column.tasks();
             }).reduce(function(acc, tasks){
@@ -22,15 +24,20 @@ define(["vendors/knockout-3.3.0", "viewmodels/column"], function (ko, Column) {
                     return !task.done();
                 }).length;
             }, 0);
-        }),
-        jsonState = ko.computed(function() {
+        });
+    
+    var jsonState = ko.computed(function() {
             console.log("save");
             localStorage.setItem("board", JSON.stringify(state()));
         }).extend({ throttle: 1000 });
 
-        stored.forEach(function(column){
-            addColumn(column);
-        });
+    var wrapperSize = ko.computed(function() {
+        return (columns().length + 1) * 310;
+    });
+
+    stored.forEach(function(column){
+        addColumn(column);
+    });
 
     function addColumn(column) {
             column.parent = columns;
@@ -39,9 +46,7 @@ define(["vendors/knockout-3.3.0", "viewmodels/column"], function (ko, Column) {
 
     return {
         columns: columns,
-        wrapperSize: ko.computed(function() {
-            return (columns().length + 1) * 310;
-        }),
+        wrapperSize: wrapperSize,
         addColumn: addColumn,
         todo: todo
     };

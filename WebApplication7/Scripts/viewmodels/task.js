@@ -23,5 +23,4 @@ define(["vendors/knockout-3.3.0"], function (ko) {
     }
 
     return Task;
-
 });

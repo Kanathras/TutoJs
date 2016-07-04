@@ -2,11 +2,14 @@ define(["vendors/knockout-3.3.0", "viewmodels/task"], function (ko, Task) {
 
     function Column(options) {
         var self = this;
+
         this.id = ko.computed(function() {
+            // we retrieve the parent (the board with the list of columns) from the options
             var _parent = options.parent();
 
             return _parent.indexOf(self);
         });
+
         this.name = ko.observable(options.name || "new");
         this.tasks = ko.observableArray(function() {
             var _tasks = options.tasks || [];
@@ -15,6 +18,7 @@ define(["vendors/knockout-3.3.0", "viewmodels/task"], function (ko, Task) {
                 return new Task(task);
             });
         }());
+
         this.addTaskAction = ko.computed(function() {
             return "#/columns/" + self.id();
         });
@@ -25,5 +29,4 @@ define(["vendors/knockout-3.3.0", "viewmodels/task"], function (ko, Task) {
     }
 
     return Column;
-
 });
